@@ -448,30 +448,30 @@ var resizePizzas = function(size) {
 		return dx;
 	}
 
-  // Iterates through pizza elements on the page and changes their widths
-  function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-    }
-  }
+	// Iterates through pizza elements on the page and changes their widths
+	function changePizzaSizes(size) {
+		for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+			var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+			var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+			document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+		}
+	}
 
-  changePizzaSizes(size);
+	changePizzaSizes(size);
 
-  // User Timing API is awesome
-  window.performance.mark("mark_end_resize");
-  window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
-  var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
-  console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
+	// User Timing API is awesome
+	window.performance.mark("mark_end_resize");
+	window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
+	var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
+	console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
 };
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
-  pizzasDiv.appendChild(pizzaElementGenerator(i));
+	var pizzasDiv = document.getElementById("randomPizzas");
+	pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
