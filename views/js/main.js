@@ -502,10 +502,15 @@ function updatePositions() {
 	frame++;
 	window.performance.mark("mark_start_frame");
 
-	var items = document.querySelectorAll('.mover');
+	var scrolltop = document.body.scrollTop; // Read scrollTop ONCE
+	// Use getElementsByClassName() instead of querySelectorAll()
+	var items = document.getElementsByClassName('mover');
 	for (var i = 0; i < items.length; i++) {
-		var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-		items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+		var phase = Math.sin((scrolltop / 1250) + (i % 5));
+		// 'transform' is less expensive than 'left'
+		// 'translate3d()' is faster than translateX():
+		// http://stackoverflow.com/questions/22111256/translate3d-vs-translate-performance
+		items[i].style.transform = 'translate3d(' + 100 * phase + 'px, 0, 0)';
 	}
 
 	// User Timing API to the rescue again. Seriously, it's worth learning.
@@ -525,15 +530,28 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
 	var cols = 8;
 	var s = 256;
+	var st = document.body.scrollTop; // Read scrollTop ONCE
+
 	for (var i = 0; i < 200; i++) {
+		// From the forums...
+		// Calculate the bottommost visible row
+		// Get the current row coord, break when pizzas no longer visible
+		rowTop = (Math.floor(i / cols) * s);
+		if (rowTop > window.innerHeight) {
+			break;
+		}
 		var elem = document.createElement('img');
 		elem.className = 'mover';
-		elem.src = "images/pizza.png";
+		elem.src = "images/bg-pizza.png";
 		elem.style.height = "100px";
-		elem.style.width = "73.333px";
+		elem.style.width = "78px"; // Changed to match original (resized) aspect ratio
+		elem.style.top = rowTop + 'px';
+		// updatePositions no longer sets an absolute style.left position
+		// So set initial pizza positions here....
 		elem.basicLeft = (i % cols) * s;
-		elem.style.top = (Math.floor(i / cols) * s) + 'px';
+		var phase = Math.sin((st / 1250) + (i % 5));
+		elem.style.left = (elem.basicLeft + 100 * phase) + 'px';
 		document.querySelector("#movingPizzas1").appendChild(elem);
 	}
-	updatePositions();
+//	updatePositions();
 });
