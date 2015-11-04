@@ -453,14 +453,15 @@ var resizePizzas = function(size) {
 
 	// Changes the slider value to a percent width
 	// *** Refactored from determineDx(elem, size)
+	// *** Changed to return percentage values
 	function sizeSwitcher (size) {
 		switch(size) {
 			case "1":
-				return 0.25;
+				return 25;
 			case "2":
-				return 0.3333;
+				return 33.33;
 			case "3":
-				return 0.5;
+				return 50;
 			default:
 				console.log("bug in sizeSwitcher");
 		}
@@ -471,10 +472,10 @@ var resizePizzas = function(size) {
 		// *** Refactor document.querySelectorAll("randomPizzaContainer") out of FOR loop
 		// *** Use getElementsByClassName() instead of querySelectorAll()
 		var randomPizzaContainers = document.getElementsByClassName("randomPizzaContainer");
-		var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
 		for (var i = 0; i < randomPizzaContainers.length; i++) {
 			// *** Set the widths of randomPizzaContainers
-			randomPizzaContainers[i].style.width = windowwidth * sizeSwitcher(size) + 'px';
+			// *** Size randomPizzaContainers as percentage of parent element
+			randomPizzaContainers[i].style.width = sizeSwitcher(size) + '%';
 		}
 	}
 
