@@ -3,10 +3,10 @@
 ## Objective 1
 ###Achieve 90+ score on PageSpeed Insights (mobile and desktop) on index.html:
 
-	Move the inline Google Analytics function to the bottom of the page
-	Add async attribute to the permatters.js link
-	Add async attribute to the analytics.js link
-	Use inline javascript to reference the Google Font
+	1 Move the inline Google Analytics function to the bottom of the page
+	2 Add async attribute to the permatters.js link
+	3. Add async attribute to the analytics.js link
+	4. Use inline javascript to reference the Google Font
 	Make the css from style.css inline
 	Specify "media='print'" for print.css link
 	Store local copies of the external images
