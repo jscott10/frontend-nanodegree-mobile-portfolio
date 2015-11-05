@@ -2,7 +2,7 @@
 
 ### Objective 1
 #### Achieve 90+ score on PageSpeed Insights (mobile and desktop) on index.html:
-```
+
 1. Changes to `index.html`
 * Move the inline Google Analytics function to the bottom of the page
 * Add async attribute to the `analytics.js` link
@@ -18,7 +18,7 @@
 * Minify javascript (`grunt-contrib-uglify`)
 * Minify css (`grunt-contrib-cssmin`)
 * Minify html (`grunt-contrib-htmlmin`)
-```
+
 Pagespeed: 93 mobile / 95 Desktop
 
 ### Objective 2
