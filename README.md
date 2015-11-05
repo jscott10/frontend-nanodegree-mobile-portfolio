@@ -3,18 +3,21 @@
 ## Objective 1
 ###Achieve 90+ score on PageSpeed Insights (mobile and desktop) on index.html:
 
-	1 Move the inline Google Analytics function to the bottom of the page
-	2 Add async attribute to the permatters.js link
-	3. Add async attribute to the analytics.js link
-	4. Use inline javascript to reference the Google Font
-	Make the css from style.css inline
-	Specify "media='print'" for print.css link
-	Store local copies of the external images
-	Resize the pizzeria.jpg image to 100px (per inline style)
-	Optimize images (grunt-contrib-imagemin)
-	Minify javascript (grunt-contrib-uglify)
-	Minify css (grunt-contrib-cssmin)
-	Minify html (grunt-contrib-htmlmin)
+	1. Changes to index.html
+	* Move the inline Google Analytics function to the bottom of the page
+	* Add async attribute to the analytics.js link
+	* Use inline javascript to reference the Google Font
+	* Make the css from style.css inline
+	* Specify "media='print'" for print.css link
+	* Create smartphone-style.css containing the smartphone media querie section of style.css, reference using media query from index.html
+	2. Images
+	* Store local copies of the external images
+	* Resize the pizzeria.jpg image to 100px (per inline style)
+	3. Optmizations
+	* Optimize images (grunt-contrib-imagemin)
+	* Minify javascript (grunt-contrib-uglify)
+	* Minify css (grunt-contrib-cssmin)
+	* Minify html (grunt-contrib-htmlmin)
 
 Pagespeed: 93 mobile / 95 Desktop
 
