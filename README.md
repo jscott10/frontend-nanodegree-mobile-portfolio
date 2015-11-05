@@ -19,7 +19,7 @@
 	* Minify css (`grunt-contrib-cssmin`)
 	* Minify html (`grunt-contrib-htmlmin`)
 
-Pagespeed: 93 mobile / 95 Desktop
+Pagespeed: **93** mobile / **95** Desktop
 
 ### Objective 2
 #### Achieve 60fms scrolling on pizza.html
@@ -38,5 +38,5 @@ Issues: 1. functions function determineDx(elem, size) and changePizzaSizes(size)
 Fix:	1 and 2: refactor determineDx(elem, size) as determineDx(windowwidth, elemOffsetWidth, size) and store randomPizzaContainer.offsetWidth and randomPizzas.offsetWidth once at the beginning of the function.
 	3: Store the array of randomPizzaContainers at the beginning of the function.
 
-Pizza resizing occurs in 0.8ms
+Pizza resizing occurs in **~0.4ms**
 
