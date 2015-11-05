@@ -475,7 +475,7 @@ var resizePizzas = function(size) {
 		for (var i = 0; i < randomPizzaContainers.length; i++) {
 			// *** Set the widths of randomPizzaContainers
 			// *** Size randomPizzaContainers as percentage of parent element
-			randomPizzaContainers[i].style.width = sizeSwitcher(size) + '%';
+			randomPizzaContainers[i].style.width = sizeSwitcher(size) + "%";
 		}
 	}
 
@@ -526,13 +526,13 @@ function updatePositions() {
 
 	var scrolltop = document.body.scrollTop; // *** Read scrollTop ONCE
 	// *** Use getElementsByClassName() instead of querySelectorAll()
-	var items = document.getElementsByClassName('mover');
+	var items = document.getElementsByClassName("mover");
 	for (var i = 0; i < items.length; i++) {
 		var phase = Math.sin((scrolltop / 1250) + (i % 5));
-		// *** 'transform' is less expensive than 'left'
-		// *** 'translate3d()' is faster than translateX():
+		// *** "transform" is less expensive than "left"
+		// *** translate3d() is faster than translateX():
 		// *** http://stackoverflow.com/questions/22111256/translate3d-vs-translate-performance
-		items[i].style.transform = 'translate3d(' + 100 * phase + 'px, 0, 0)';
+		items[i].style.transform = "translate3d(" + 100 * phase + "px, 0, 0)";
 	}
 
 	// User Timing API to the rescue again. Seriously, it's worth learning.
@@ -546,10 +546,10 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
+window.addEventListener("scroll", updatePositions);
 
 // Generates the sliding pizzas when the page loads.
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
 	var cols = 8;
 	var s = 256;
 	var st = document.body.scrollTop; // *** Read scrollTop ONCE
@@ -558,11 +558,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		// *** From the forums...
 		// *** Calculate the bottommost visible row
 		// *** Get the current row coord, break when pizzas no longer visible
-		rowTop = (Math.floor(i / cols) * s);
+		var rowTop = (Math.floor(i / cols) * s);
 		if (rowTop > window.innerHeight) {
 			break;
 		}
-		var elem = document.createElement('img');
+		var elem = document.createElement("img");
 		elem.className = "mover";
 		elem.src = "images/bg-pizza.png";
 		elem.style.height = "100px";
@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		// *** So set initial pizza positions here....
 		elem.basicLeft = (i % cols) * s;
 		var phase = Math.sin((st / 1250) + (i % 5));
-		elem.style.left = (elem.basicLeft + 100 * phase) + 'px';
+		elem.style.left = elem.basicLeft + 100 * phase + "px";
 		document.querySelector("#movingPizzas1").appendChild(elem);
 	}
 });
