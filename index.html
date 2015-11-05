@@ -54,8 +54,22 @@
 			footer span { float: right; font-style: italic; }
 		</style>
 
-		<!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-		<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+		<script type="text/javascript">
+			WebFontConfig = {
+				google: { families: [ 'Open+Sans:400,700,400italic:latin' ] }
+			};
+			(function() {
+				var wf = document.createElement('script');
+				wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+					'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+				wf.type = 'text/javascript';
+				wf.async = 'true';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(wf, s);
+			})();
+		</script>
+  		<!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
+		<!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
 
 		<!-- Add media type to smartphone related css file -->
 		<!-- <link href="css/style-smartphone.css" rel="stylesheet" media="screen AND (max-width: 480px)"> -->
