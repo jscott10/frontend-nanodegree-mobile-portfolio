@@ -1,73 +1,39 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+## Objective 1
+###Achieve 90+ score on PageSpeed Insights (mobile and desktop) on index.html:
 
-To get started, check out the repository, inspect the code,
+	Move the inline Google Analytics function to the bottom of the page
+	Add async attribute to the permatters.js link
+	Add async attribute to the analytics.js link
+	Use inline javascript to reference the Google Font
+	Make the css from style.css inline
+	Specify "media='print'" for print.css link
+	Store local copies of the external images
+	Resize the pizzeria.jpg image to 100px (per inline style)
+	Optimize images (grunt-contrib-imagemin)
+	Minify javascript (grunt-contrib-uglify)
+	Minify css (grunt-contrib-cssmin)
+	Minify html (grunt-contrib-htmlmin)
 
-### Getting started
+Pagespeed: 93 mobile / 95 Desktop
 
-####Part 1: Optimize PageSpeed Insights score for index.html
+## Objective 2
+### Achieve 60fms scrolling on pizza.html
 
-Some useful tips to help you get started:
+Issue: function updatePositions() references document.body.scrollTop for each pizza image on every scroll event. Reflow occurs every time scrollTop is read.
+Fix: refactor updatePositions() to move the reference to document.body.scrollTop outside the for loop.
+Result: Page scrolls at 60fms.
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+## Objective 3
+###Achieve <5ms pizza resizing on pizza.html
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
+Issues: 1. functions function determineDx(elem, size) and changePizzaSizes(size) both reference the offsetWidth of each randomPizzaContainer element. Reflow occurs every time offsetWidth is read.
+	2. determineDx(elem, size) references the offsetWidth of #randomPizzas. Reflow occurs every time offsetWidth is read.
+	3. document.querySelectorAll(".randomPizzaContainer") is called as the for-loop limit and in the body of the for loop
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
+Fix:	1 and 2: refactor determineDx(elem, size) as determineDx(windowwidth, elemOffsetWidth, size) and store randomPizzaContainer.offsetWidth and randomPizzas.offsetWidth once at the beginning of the function.
+	3: Store the array of randomPizzaContainers at the beginning of the function.
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ngrok 8080
-  ```
+Pizza resizing occurs in 0.8ms
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
-
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
-
-####Part 2: Optimize Frames per Second in pizza.html
-
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
-
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
-
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
-
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
-
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
-
-### Sample Portfolios
-
-Feeling uninspired by the portfolio? Here's a list of cool portfolios I found after a few minutes of Googling.
-
-* <a href="http://www.reddit.com/r/webdev/comments/280qkr/would_anybody_like_to_post_their_portfolio_site/">A great discussion about portfolios on reddit</a>
-* <a href="http://ianlunn.co.uk/">http://ianlunn.co.uk/</a>
-* <a href="http://www.adhamdannaway.com/portfolio">http://www.adhamdannaway.com/portfolio</a>
-* <a href="http://www.timboelaars.nl/">http://www.timboelaars.nl/</a>
-* <a href="http://futoryan.prosite.com/">http://futoryan.prosite.com/</a>
-* <a href="http://playonpixels.prosite.com/21591/projects">http://playonpixels.prosite.com/21591/projects</a>
-* <a href="http://colintrenter.prosite.com/">http://colintrenter.prosite.com/</a>
-* <a href="http://calebmorris.prosite.com/">http://calebmorris.prosite.com/</a>
-* <a href="http://www.cullywright.com/">http://www.cullywright.com/</a>
-* <a href="http://yourjustlucky.com/">http://yourjustlucky.com/</a>
-* <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
-* <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
-* <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
