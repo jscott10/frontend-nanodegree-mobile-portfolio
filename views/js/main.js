@@ -553,12 +553,13 @@ document.addEventListener("DOMContentLoaded", function() {
 	var cols = 8;
 	var s = 256;
 	var st = document.body.scrollTop; // *** Read scrollTop ONCE
+	var rowTop;
 
 	for (var i = 0; i < 200; i++) {
 		// *** From the forums...
 		// *** Calculate the bottommost visible row
 		// *** Get the current row coord, break when pizzas no longer visible
-		var rowTop = (Math.floor(i / cols) * s);
+		rowTop = (Math.floor(i / cols) * s);
 		if (rowTop > window.innerHeight) {
 			break;
 		}

@@ -59,7 +59,7 @@ grunt.initConfig({
 				collapseWhitespace: true
 			},
 			files: {                                   // Dictionary of files
-				'index.html': 'src/index.html',     // 'destination': 'source'
+				'index.html': 'html-source/index.html',     // 'destination': 'source'
 				// 'dist/contact.html': 'src/contact.html'
 			}
 		}
@@ -73,11 +73,11 @@ grunt.initConfig({
   	pagespeed: {
 		options: {
 			nokey: true,
-			url: "http://3fb3cd60.ngrok.io"
+			url: "http://26280c63.ngrok.io"
 		},
 		prod_mob: {
 			options: {
-				url: "http://3fb3cd60.ngrok.io/p4/",
+				url: "http://26280c63.ngrok.io/frontend-nanodegree-mobile-portfolio/",
 				locale: "en_GB",
 				strategy: "mobile",
 				threshold: 50
@@ -85,7 +85,7 @@ grunt.initConfig({
 		},
 		prod_desk: {
 			options: {
-				url: "http://3fb3cd60.ngrok.io/p4/",
+				url: "http://26280c63.ngrok.io/frontend-nanodegree-mobile-portfolio/",
 				locale: "en_GB",
 				strategy: "desktop",
 				threshold: 50
