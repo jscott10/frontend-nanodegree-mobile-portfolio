@@ -4,17 +4,17 @@
 
 #### Optimizations
 
-1. Changes to index.html
+*Changes to index.html*
 * Move the inline Google Analytics function to the bottom of the page
 * Add async attribute to the analytics.js link
 * Use inline javascript to reference the Google Font
 * Make the css from style.css inline
 * Specify "media='print'" for print.css link
 * Create smartphone-style.css containing the smartphone media querie section of style.css, reference using media query from index.html
-2. Images
+*Images*
 * Store local copies of the external images
 * Resize the pizzeria.jpg image to 100px (per inline style)
-3. Optmizations
+*Optmizations*
 * Optimize images (grunt-contrib-imagemin)
 * Minify javascript (grunt-contrib-uglify)
 * Minify css (grunt-contrib-cssmin)
@@ -38,7 +38,7 @@ Pagespeed: **93** mobile / **95** Desktop
 * Added code to calculate initial positions (lines 574-576).
 * Added code to calculate the number of visible pizza rows (lines 562-565)
 
-Page scrolls at 60fms.
+Page scrolls at **60fms**.
 
 ### Objective 3: Achieve <5ms pizza resizing on pizza.html
 
