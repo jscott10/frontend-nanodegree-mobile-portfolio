@@ -26,7 +26,7 @@ Pagespeed: **93** mobile / **95** Desktop
 
 #### Optimizations
 
-Issue: function updatePositions() references document.body.scrollTop for each pizza image on every scroll event. Reflow occurs every time scrollTop is read.
+1. Refactor function updatePositions() to move document.body.scrollTop for each pizza image on every scroll event. Reflow occurs every time scrollTop is read.
 Fix: refactor updatePositions() to move the reference to document.body.scrollTop outside the for loop.
 Result: Page scrolls at 60fms.
 
