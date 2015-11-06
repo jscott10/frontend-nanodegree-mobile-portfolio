@@ -26,20 +26,29 @@ Pagespeed: **93** mobile / **95** Desktop
 
 #### Optimizations
 
-1. Refactor function updatePositions() to move document.body.scrollTop for each pizza image on every scroll event. Reflow occurs every time scrollTop is read.
-Fix: refactor updatePositions() to move the reference to document.body.scrollTop outside the for loop.
-Result: Page scrolls at 60fms.
+*updatePositions():*
+
+*Refactor document.body.scrollTop out of the for loop (line 527) to eliminate forced synchronous layout.
+*Replace querySelectorAll(".mover") with getElementsByClassName("mover") (line 529), the latter executes faster.
+*Specify pizza image locations using tranform instead of left (line 535). Left triggers layout and paint, transform only trigger composite.
+*translate3d(x,y,z) is faster than translateX(x) because translate3d(x,y,z) forces the composite operation onto the GPU (http://stackoverflow.com/questions/22111256/translate3d-vs-translate-performance)
+
+*addEventListener("scroll", updatePositions):*
+
+*Added code to calculate initial positions (lines 574-576).
+*Added code to calculate the number of visible pizza rows (lines 562-565)
+
+Page scrolls at 60fms.
 
 ### Objective 3: Achieve <5ms pizza resizing on pizza.html
 
 #### Optimizations
 
-1. functions function determineDx(elem, size) and changePizzaSizes(size) both reference the offsetWidth of each randomPizzaContainer element. Reflow occurs every time offsetWidth is read.
-2. determineDx(elem, size) references the offsetWidth of #randomPizzas. Reflow occurs every time offsetWidth is read.
-3. document.querySelectorAll(".randomPizzaContainer") is called as the for-loop limit and in the body of the for loop
-
-Fix:	1 and 2: refactor determineDx(elem, size) as determineDx(windowwidth, elemOffsetWidth, size) and store randomPizzaContainer.offsetWidth and randomPizzas.offsetWidth once at the beginning of the function.
-	3: Store the array of randomPizzaContainers at the beginning of the function.
+*Eliminate determineDx(elem, size), factoring out sizeSwitcher(size). (line 457)
+*Change sizeSwitcher to return a percentage value
+*Refactor to move document.querySelectorAll(".randomPizzaContainer") out of the for loop. (line 474)
+*Replace querySelectorAll(".randomPizzaContainer") with getElementsByClassName("randomPizzaContainer") (line 474), the latter executes faster.
+*Set randomPizzaContainers[x].style.width to a percentage value.
 
 Pizza resizing occurs in **~0.4ms**
 
