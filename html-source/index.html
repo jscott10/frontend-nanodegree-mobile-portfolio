@@ -52,6 +52,11 @@
 				border-top: 1px solid #ccc;
 			}
 			footer span { float: right; font-style: italic; }
+			/* Smartphones (portrait) */
+			@media only screen and (max-width: 480px) {
+				body { font-size: 12px;}
+				header p { padding-left: 4.5em;}
+			}
 		</style>
 
 		<!-- *** Use javascript to load the Google font -->
@@ -70,8 +75,6 @@
 			})();
 		</script>
 
-		<!-- *** Add media type to smartphone related css file -->
-		<link href="css/style-smartphone.css" rel="stylesheet" media="screen AND (max-width: 480px)">
 		<!-- *** Add media type to print related css file -->
 		<link href="css/build/print.min.css" rel="stylesheet" media="print">
 
