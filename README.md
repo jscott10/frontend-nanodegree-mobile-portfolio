@@ -15,7 +15,6 @@ http://jscott10.github.io/frontend-nanodegree-mobile-portfolio/
 * Use inline javascript to reference the Google Font
 * Make the css from style.css inline
 * Specify "media='print'" for print.css link
-* Create smartphone-style.css containing the smartphone media querie section of style.css, reference using media query from index.html
 
 *Images*
 
