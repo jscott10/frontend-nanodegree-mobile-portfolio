@@ -3,18 +3,18 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content=" FILL ME IN ">
-		<meta name="author" content=" FILL ME IN ">
-		<title>Cameron Pittman: Portfolio</title>
+		<meta name="description" content="Udacity FEND Project #4">
+		<meta name="author" content="Udacity Staff, modified by James L. Scott">
+		<title>Udacity FEND Project #4</title>
 
 		<!-- *** Move styles from style.css into HTML -->
 		<style>
 			html {
-			  font-size: 100%;
-			  overflow-y: scroll;
-			  -webkit-tap-highlight-color: rgba(0,0,0,0);
-			  -ms-text-size-adjust: 100%;
-			  -webkit-text-size-adjust: none;
+				font-size: 100%;
+				overflow-y: scroll;
+				-webkit-tap-highlight-color: rgba(0,0,0,0);
+				-ms-text-size-adjust: 100%;
+				-webkit-text-size-adjust: none;
 			}
 			body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; }
 			body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #333; }
@@ -38,8 +38,8 @@
 			header p span { font-size: 0.8em; font-weight: normal;}
 
 			.hero { padding: 2em; background-color: #f8f8f8; font-size:1.2em;
-			  border-bottom: 1px solid #ccc;
-			  border-top: 1px solid #ccc;
+				border-bottom: 1px solid #ccc;
+				border-top: 1px solid #ccc;
 			}
 
 			.content { padding: 1em 1em; }
@@ -48,12 +48,13 @@
 			li p { font-size: 0.9em; font-style: italic; }
 
 			footer {
-			  padding: 0 0.5em;
-			  border-top: 1px solid #ccc;
+				padding: 0 0.5em;
+				border-top: 1px solid #ccc;
 			}
 			footer span { float: right; font-style: italic; }
 		</style>
 
+		<!-- *** Use javascript to load the Google font -->
 		<script type="text/javascript">
 			WebFontConfig = {
 				google: { families: [ 'Open+Sans:400,700,400italic:latin' ] }
@@ -68,22 +69,20 @@
 				s.parentNode.insertBefore(wf, s);
 			})();
 		</script>
-  		<!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-		<!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
 
-		<!-- Add media type to smartphone related css file -->
-		<!-- <link href="css/style-smartphone.css" rel="stylesheet" media="screen AND (max-width: 480px)"> -->
-		<!-- Add media type to print related css file -->
+		<!-- *** Add media type to smartphone related css file -->
+		<link href="css/style-smartphone.css" rel="stylesheet" media="screen AND (max-width: 480px)">
+		<!-- *** Add media type to print related css file -->
 		<link href="css/build/print.min.css" rel="stylesheet" media="print">
 
-		<!-- Add 'async' attribute to script tag -->
+		<!-- *** Add 'async' attribute to script tag -->
 		<script async src="http://www.google-analytics.com/analytics.js"></script>
 		<script async src="js/build/perfmatters.js"></script>
 	</head>
 
 	<body>
 		<header>
-			<a href="/"><img src="img/build/profilepic.jpg"></a>
+			<a href="/"><img alt="James L. Scott photo" src="img/build/profilepic.jpg"></a>
 			<p>James L Scott<br><span>Front End Developer</span></p>
 		</header>
 
@@ -96,45 +95,45 @@
 			<div class="content">
 				<ul>
 					<li>
-						<img src="img/build/proj1.jpg">
+						<img alt="Project 1 image" src="img/build/proj1.jpg">
 						<a href="https://github.com/jscott10/UdacityProject2">Online Resume</a>
 						<p>Udacity Project #2 - Online Resume</p>
 					</li>
 
 					<li>
-						<img src="img/build/proj2.jpg">
+						<img alt="Project 2 image" src="img/build/proj2.jpg">
 						<a href="https://github.com/jscott10/UdacityProject3">Frogger Type Game</a>
 						<p>Udacity Project #3 - Frogger Type Game</p>
 					</li>
 
 					<li>
-						<img src="img/build/proj3.jpg">
+						<img alt="Project 3 image" src="img/build/proj3.jpg">
 						<a href="https://github.com/jscott10/frontend-nanodegree-mobile-portfolio">Website Optimization</a>
 						<p>Udacity Project #4 - Website Optimization</p>
 					</li>
 
 					<li>
 						<!-- Resize image and move to /img/ folder -->
-						<img src="img/build/pizzeria.jpg"> <!-- Move inline style to top -->
+						<img alt="Pizzeria image" src="img/build/pizzeria.jpg"> <!-- Move inline style to top -->
 						<a href="views/pizza.html">Cam's Pizzeria</a>
 						<p>Who wants a performant pizza?</p>
 					</li>
 				</ul>
 			</div>
 
-		</div> <!-- Missing in original file -->
+		</div> <!-- *** Missing in original file -->
 
 		<footer>
 			<p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
 		</footer>
-	</body>
-	<!-- Move script to bottom of page (not required to build DOM) -->
-	<script>
-		(function(w,g){w['GoogleAnalyticsObject']=g;
-		w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
+		<!-- *** Move script to bottom of page (not required to build DOM) -->
+		<script>
+			(function(w,g){w['GoogleAnalyticsObject']=g;
+			w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
 
-		// TODO: replace with your Google Analytics profile ID.
-		ga('create', 'UA-69197472-1');
-		ga('send', 'pageview');
-	</script>
+			// *** Added my Google Analytics profile ID.
+			ga('create', 'UA-69197472-1');
+			ga('send', 'pageview');
+		</script>
+	</body>
 </html>

@@ -1,20 +1,29 @@
 ## Website Performance Optimization portfolio project
 
+The project can be viewed in a browser at this URL:
+
+http://jscott10.github.io/frontend-nanodegree-mobile-portfolio/
+
 ### Objective 1: Achieve 90+ score on PageSpeed Insights (mobile and desktop) on index.html:
 
 #### Optimizations
 
 *Changes to index.html*
+
 * Move the inline Google Analytics function to the bottom of the page
 * Add async attribute to the analytics.js link
 * Use inline javascript to reference the Google Font
 * Make the css from style.css inline
 * Specify "media='print'" for print.css link
 * Create smartphone-style.css containing the smartphone media querie section of style.css, reference using media query from index.html
+
 *Images*
+
 * Store local copies of the external images
 * Resize the pizzeria.jpg image to 100px (per inline style)
+
 *Optmizations*
+
 * Optimize images (grunt-contrib-imagemin)
 * Minify javascript (grunt-contrib-uglify)
 * Minify css (grunt-contrib-cssmin)
@@ -30,7 +39,7 @@ Pagespeed: **93** mobile / **95** Desktop
 
 * Refactor document.body.scrollTop out of the for loop (line 527) to eliminate forced synchronous layout.
 * Replace querySelectorAll(".mover") with getElementsByClassName("mover") (line 529), the latter executes faster.
-* Specify pizza image locations using tranform instead of left (line 535). Left triggers layout and paint, transform only trigger composite.
+* Specify pizza image locations using transform instead of left (line 535). Left triggers layout and paint, transform only trigger composite.
 * translate3d(x,y,z) is faster than translateX(x) because translate3d(x,y,z) forces the composite operation onto the GPU (http://stackoverflow.com/questions/22111256/translate3d-vs-translate-performance)
 
 *addEventListener("scroll", updatePositions):*
