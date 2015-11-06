@@ -44,11 +44,11 @@ Page scrolls at 60fms.
 
 #### Optimizations
 
-*Eliminate determineDx(elem, size), factoring out sizeSwitcher(size). (line 457)
-*Change sizeSwitcher to return a percentage value
-*Refactor to move document.querySelectorAll(".randomPizzaContainer") out of the for loop. (line 474)
-*Replace querySelectorAll(".randomPizzaContainer") with getElementsByClassName("randomPizzaContainer") (line 474), the latter executes faster.
-*Set randomPizzaContainers[x].style.width to a percentage value.
+* Eliminate determineDx(elem, size), factoring out sizeSwitcher(size). (line 457)
+* Change sizeSwitcher to return a percentage value
+* Refactor to move document.querySelectorAll(".randomPizzaContainer") out of the for loop. (line 474)
+* Replace querySelectorAll(".randomPizzaContainer") with getElementsByClassName("randomPizzaContainer") (line 474), the latter executes faster.
+* Set randomPizzaContainers[x].style.width to a percentage value.
 
 Pizza resizing occurs in **~0.4ms**
 
